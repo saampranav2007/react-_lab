@@ -1,42 +1,21 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 
-function App() {
-  const [tasks,settask]=useState([]);
-  const [text,settext]=useState("")
-  const addtask=()=>{
-      settask([...tasks ,{name:text, completed:false}])
-      settext("")
-   }
-
-   const deletetask=(index)=>{
-    settask(tasks.filter((_,i)=>i !== index));
-   }
-
+function App(){
+  const [color,Setcolor]=useState("white")
   return (
     <div>
-      <h1>to-do list</h1>
-      <input 
-      value={text}
-      onChange={(e)=>settext(e.target.value)}
-      placeholder='enter task'
-      />
-      <button onClick={addtask}>Add</button>
-
-      <ul>
-        {tasks.map((task,index)=>(
-          <li key={index}>
-            <input
-            type='checkbox'
-            checked={tasks.completed}
-            />
-            <span>{task.name}</span>
-            <button onClick={()=>deletetask(index)}
-            >delete</button>
-          </li>
-        ))}
-      </ul>
+      <h1>color-picker</h1>
+      <button onClick={()=>Setcolor("red")}>Red</button>
+      <button onClick={()=>Setcolor("blue")}>Blue</button>
+      <button onClick={()=>Setcolor("green")}>Green</button>
+      <div style={{height:"100px",
+        width:"200px",
+        border:"1px solid",
+        marginLeft:"220px",
+        marginTop:"20px",
+        backgroundColor:color}}></div>
     </div>
   )
 }
+export default  App; 
 
-export default App
