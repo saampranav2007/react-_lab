@@ -1,21 +1,34 @@
-import React, {useState} from 'react'
+import React ,{useState} from 'react'
+function Calculator(){
+  const[num1,setNum1]=useState("")
+  const[num2,setNum2]=useState("")
 
-function App(){
-  const [color,Setcolor]=useState("white")
-  return (
-    <div>
-      <h1>color-picker</h1>
-      <button onClick={()=>Setcolor("red")}>Red</button>
-      <button onClick={()=>Setcolor("blue")}>Blue</button>
-      <button onClick={()=>Setcolor("green")}>Green</button>
-      <div style={{height:"100px",
-        width:"200px",
-        border:"1px solid",
-        marginLeft:"220px",
-        marginTop:"20px",
-        backgroundColor:color}}></div>
-    </div>
-  )
+  const a=Number(num1);
+  const b=Number(num2);
+        
+    return(
+        <div>
+            <h1 style={{textDecoration:"underline"}}>Calculator</h1>
+            <input type="number"placeholder='Enter the first value'
+            onChange={(e)=>setNum1(e.target.value)}/>
+            <input type="number"placeholder='enter the second value'
+            onChange={(e)=>setNum2(e.target.value)}/>
+            <div style={{height:"200px",
+              width:"300px",
+              border:"3px solid",
+              marginLeft:"550px",
+              marginTop:"20px",
+              backgroundColor:"lightblue",
+              textAlign:"left"}}>
+                <p><strong>Addition</strong>{a+b}</p>
+                <p><strong>Subtraction</strong>{a-b}</p>
+                <p><strong>Multiplication</strong>{a*b}</p>
+                <p><strong>Division</strong>
+                {b==0 ?"can't divided by zero":a/b}</p>
+              </div>
+            
+
+        </div>
+    )
 }
-export default  App; 
-
+export default Calculator
